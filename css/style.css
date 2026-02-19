@@ -1,0 +1,149 @@
+:root {
+    --kek: rgb(3 114 197);
+    --sotetkek: rgb(0 61 138);
+    --barna: rgb(94 60 38);
+}
+
+body {
+    background-color: var(--kek);
+    color: var(--sotetkek);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    counter-reset: section-counter;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik Distressed', system-ui;
+    font-weight: normal !important;
+}
+
+h2:not(.no-count) {
+    font-variant: small-caps;
+    counter-increment: section-counter;
+}
+
+h2:not(.no-count)::before {
+    content: counter(section-counter) ". ";
+}
+
+header {
+    height: 400px;
+    background-image: 
+        linear-gradient(to bottom, rgba(94, 60, 38, 0.8), rgba(0, 0, 0, 0.6)), 
+        url('../forras/images/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    font-size: 2rem;
+    border: 2px dashed white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 750px) {
+    h1 { font-size: 3rem; }
+    main { width: 80% !important; margin: 0 auto; }
+}
+
+@media (min-width: 1200px) {
+    main { width: 80% !important; }
+}
+
+main {
+    box-shadow: 10px 0px 0px var(--sotetkek);
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0 !important;
+}
+
+footer {
+    background-color: var(--sotetkek);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.cat-item {
+    padding: 8px 20px;
+    border-radius: 50px;
+    background-color: rgba(0, 61, 138, 0.1);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cat-item.active {
+    background-color: var(--sotetkek);
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 750px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--kek);
+    background-color: rgba(3, 114, 197, 0.15);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 61, 138, 0.4);
+}
+
+.card img {
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.btn-calc {
+    background-color: var(--sotetkek);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-calc:hover {
+    opacity: 0.9;
+}
+
+dialog {
+    border: 2px solid var(--sotetkek);
+    color: var(--sotetkek);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#close-dialog {
+    float: right;
+    background: var(--sotetkek);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+}
